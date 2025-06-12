@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Comunicaciones Internas - Fuerza Naval</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+  <nav class="bg-gray-800 p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-blue-300">⚓ Fuerza Naval</h1>
+    <ul class="flex space-x-6">
+      <li><a href="../index.html" class="hover:text-blue-400">Inicio</a></li>
+      <li><a href="comunicaciones.html" class="text-blue-400 font-bold">Comunicaciones</a></li>
+      <li><a href="acceso-externo.html" class="hover:text-blue-400">Acceso Externo</a></li>
+      <li><a href="../login.html" class="hover:text-blue-400">Login</a></li>
+    </ul>
+  </nav>
+
+  <header class="text-center py-10">
+    <h2 class="text-3xl font-bold">🛰️ Comunicaciones Internas</h2>
+    <p class="text-blue-200">Noticias y actualizaciones para oficiales y tripulación.</p>
+  </header>
+
+  <main class="px-10 grid md:grid-cols-2 gap-6">
+    <!-- Tarjeta de noticia -->
+    <div class="bg-gray-800 p-5 rounded shadow">
+      <h3 class="text-xl font-bold text-blue-300">Inicia Operación Tritón en la costa norte 2025</h3>
+      <p class="text-gray-300">Se ha desplegado una nueva misión de patrullaje costero.</p>
+      <div class="text-sm text-gray-400 mt-2">Operaciones • 11 de junio 2025 • Cmd. Vega</div>
+      <button onclick="verMas('triton')" class="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded">Ver más</button>
+    </div>
+
+    <div class="bg-gray-800 p-5 rounded shadow">
+      <h3 class="text-xl font-bold text-blue-300">Reparación del radar en el buque Albatros completada</h3>
+      <p class="text-gray-300">El sistema de detección del Albatros ya está en funcionamiento.</p>
+      <div class="text-sm text-gray-400 mt-2">Técnico • 10 de junio 2025 • Ing. Ramírez</div>
+      <button onclick="verMas('radar')" class="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded">Ver más</button>
+    </div>
+
+    <div class="bg-gray-800 p-5 rounded shadow">
+      <h3 class="text-xl font-bold text-blue-300">Reconocimiento al equipo de mantenimiento</h3>
+      <p class="text-gray-300">El equipo recibió una mención especial por su excelente labor.</p>
+      <div class="text-sm text-gray-400 mt-2">Reconocimientos • 09 de junio 2025 • Dir. Humanas</div>
+      <button onclick="verMas('reconocimiento')" class="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded">Ver más</button>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
+    <div class="bg-gray-900 p-6 rounded-lg w-11/12 md:w-2/3 lg:w-1/2 relative">
+      <h2 id="modalTitulo" class="text-2xl text-blue-400 font-bold mb-2">Título</h2>
+      <p id="modalInfo" class="text-sm text-gray-400 mb-4">Fecha y autor</p>
+      <p id="modalCategoria" class="text-sm italic text-green-400 mb-2">Categoría</p>
+      <p id="modalDescripcion" class="text-gray-200 leading-relaxed">Descripción extendida de la noticia.</p>
+      <button onclick="cerrarModal()" class="absolute top-2 right-4 text-white text-xl hover:text-red-400">&times;</button>
+    </div>
+  </div>
+
+  <footer class="text-center py-6 bg-gray-800 mt-10 text-sm text-gray-400">
+    &copy; 2025 Fuerza Naval. Área de Comunicaciones.
+  </footer>
+
+  <script>
+    function verMas(id) {
+      const noticias = {
+        triton: {
+          titulo: "Inicia Operación Tritón en la costa norte 2025",
+          info: "11 de junio 2025 • Cmd. Vega",
+          categoria: "Operaciones",
+          descripcion:
+            "La Fuerza Naval ha iniciado el despliegue estratégico de unidades en la costa norte como parte de la Operación Tritón. El objetivo es intensificar la vigilancia marítima, entrenar a las tripulaciones en maniobras tácticas y asegurar la soberanía de las aguas jurisdiccionales. Esta misión incluye ejercicios nocturnos y coordinación con drones de reconocimiento."
+        },
+        radar: {
+          titulo: "Reparación del radar en el buque Albatros completada",
+          info: "10 de junio 2025 • Ing. Ramírez",
+          categoria: "Técnico",
+          descripcion:
+            "Tras intensas jornadas de trabajo por parte del equipo de ingeniería, el radar de alta precisión del buque Albatros ha sido completamente restaurado. Esto permitirá detectar embarcaciones en un radio de hasta 120 millas náuticas, incrementando la seguridad operativa y la eficacia de las patrullas marinas."
+        },
+        reconocimiento: {
+          titulo: "Reconocimiento al equipo de mantenimiento",
+          info: "09 de junio 2025 • Dir. Humanas",
+          categoria: "Reconocimientos",
+          descripcion:
+            "El personal de mantenimiento recibió un reconocimiento institucional por su destacada labor durante las últimas maniobras de simulacro. Su capacidad de respuesta y compromiso han sido fundamentales para mantener la operatividad plena de la flota. El acto de premiación se llevó a cabo en la Base Naval Central con la presencia del Alto Mando."
+        }
+      };
+
+      const noticia = noticias[id];
+      document.getElementById("modalTitulo").innerText = noticia.titulo;
+      document.getElementById("modalInfo").innerText = noticia.info;
+      document.getElementById("modalCategoria").innerText = `Categoría: ${noticia.categoria}`;
+      document.getElementById("modalDescripcion").innerText = noticia.descripcion;
+      document.getElementById("modal").classList.remove("hidden");
+      document.getElementById("modal").classList.add("flex");
+    }
+
+    function cerrarModal() {
+      document.getElementById("modal").classList.add("hidden");
+      document.getElementById("modal").classList.remove("flex");
+    }
+  </script>
+</body>
+</html>

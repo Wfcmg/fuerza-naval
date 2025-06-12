@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fuerza Naval - Inicio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+  <!-- Menú de navegación -->
+  <nav class="bg-gray-800 p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-blue-300">⚓ Fuerza Naval</h1>
+    <ul class="flex space-x-6">
+      <li><a href="index.html" class="hover:text-blue-400">Inicio</a></li>
+      <li><a href="modules/comunicaciones.html" class="hover:text-blue-400">Comunicaciones</a></li>
+      <li><a href="modules/acceso-externo.html" class="hover:text-blue-400">Acceso Externo</a></li>
+      <li><a href="login.html" class="hover:text-blue-400">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Encabezado principal -->
+  <header class="text-center py-20 bg-gray-700">
+    <h2 class="text-3xl font-bold mb-4">Interfaz Web de Simulación Militar</h2>
+    <p class="text-lg text-blue-200">Sistema de gestión y colaboración para la Fuerza Naval</p>
+  </header>
+
+  <!-- Secciones principales -->
+  <main class="p-10 grid md:grid-cols-3 gap-8">
+    <!-- Módulo Comunicaciones -->
+    <section class="bg-gray-800 p-6 rounded-lg shadow-lg">
+      <h3 class="text-2xl font-semibold mb-2 text-blue-300">📡 Comunicaciones Internas</h3>
+      <p class="mb-4">Simula una intranet exclusiva para oficiales, con noticias y administración.</p>
+      <a href="modules/comunicaciones.html" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Ir al módulo</a>
+    </section>
+
+    <!-- Módulo Externo -->
+    <section class="bg-gray-800 p-6 rounded-lg shadow-lg">
+      <h3 class="text-2xl font-semibold mb-2 text-blue-300">🌐 Acceso Externo</h3>
+      <p class="mb-4">Portal para aliados estratégicos y recursos compartidos.</p>
+      <a href="modules/acceso-externo.html" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Ir al módulo</a>
+    </section>
+
+    <!-- Módulo Login -->
+    <section class="bg-gray-800 p-6 rounded-lg shadow-lg">
+      <h3 class="text-2xl font-semibold mb-2 text-blue-300">🔒 Control de Acceso</h3>
+      <p class="mb-4">Simulación de login con perfiles y accesos diferenciados.</p>
+      <a href="login.html" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Iniciar sesión</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 bg-gray-800 mt-10 text-sm text-gray-400">
+    &copy; 2025 Fuerza Naval de Simulación. William Carrion.
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

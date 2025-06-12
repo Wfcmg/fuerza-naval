@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Acceso Fuerza Naval</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-900 text-white font-sans">
+  <div class="min-h-screen flex flex-col items-center justify-center px-6">
+    <div class="bg-gray-800 p-8 rounded shadow-lg w-full max-w-md">
+      <h1 class="text-2xl text-center font-bold text-blue-400 mb-6">🔒 Acceso Restringido</h1>
+      <form id="loginForm" class="space-y-4">
+        <input type="text" id="usuario" placeholder="Usuario" class="w-full bg-gray-700 p-2 rounded" required />
+        <input type="password" id="contrasena" placeholder="Contraseña" class="w-full bg-gray-700 p-2 rounded" required />
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 p-2 rounded font-bold">Ingresar</button>
+      </form>
+    </div>
+
+    <!-- Informe simulado -->
+    <div id="informe" class="hidden mt-10 bg-gray-800 p-6 rounded shadow-lg w-full max-w-2xl">
+      <h2 class="text-xl font-bold text-green-400 mb-4" id="tituloRol">Bienvenido</h2>
+      <p class="text-gray-300 mb-2" id="informeTexto">
+        Autenticación exitosa. Cargando datos estratégicos...
+      </p>
+
+      <div class="bg-gray-700 p-4 rounded mt-4">
+        <h3 class="text-blue-300 font-semibold mb-2">📋 Informe Táctico - Clasificación ALFA</h3>
+        <ul class="list-disc list-inside text-gray-200 space-y-1 text-sm">
+          <li>Reporte meteorológico adverso en zona norte: precaución para unidades costeras.</li>
+          <li>Unidad Poseidón completó patrullaje con cero incidencias.</li>
+          <li>Plan de entrenamiento conjunto confirmado para el 18 de junio 2025.</li>
+          <li>Nueva directiva logística disponible para su descarga segura.</li>
+        </ul>
+      </div>
+
+      <div class="text-center mt-6">
+        <a href="index.html" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded font-bold text-white">⬅️ Regresar al Inicio</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Simulación de autenticación
+      const usuario = document.getElementById("usuario").value.toLowerCase();
+      const contrasena = document.getElementById("contrasena").value;
+      const loginForm = document.getElementById("loginForm");
+      const informe = document.getElementById("informe");
+      const tituloRol = document.getElementById("tituloRol");
+
+      let rol = "usuario";
+      if (usuario.includes("tactico")) rol = "Operador Táctico";
+      else if (usuario.includes("logistico")) rol = "Oficial Logístico";
+      else if (usuario.includes("admin")) rol = "Administrador";
+
+      tituloRol.innerText = `✅ ${rol} identificado. Acceso autorizado.`;
+      loginForm.classList.add("hidden");
+      informe.classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
+
